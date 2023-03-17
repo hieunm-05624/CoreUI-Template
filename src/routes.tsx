@@ -1,14 +1,17 @@
 import React from 'react';
 import { Navigate, RouteObject, useRoutes } from 'react-router-dom';
+import TheLayout from './components/containers/TheLayout';
 import BaseRoutes from './components/dummy/base/routes';
 import ButtonRoutes from './components/dummy/buttons/routes';
 import FormRoutes from './components/dummy/forms/routes';
 import IconRoutes from './components/dummy/icons/routes';
 import NotificationRoutes from './components/dummy/notifications/routes';
 import ThemeRoutes from './components/dummy/theme/routes';
-import AuthRoutes from './components/modules/auth/routes';
 
 const Table = React.lazy(() => import('./components/dummy/Table'));
+const ForgotPassword = React.lazy(() => import('./components/modules/auth/ForgotPassword'));
+const Login = React.lazy(() => import('./components/modules/auth/Login'));
+const Register = React.lazy(() => import('./components/modules/auth/Register'));
 
 const Dashboard = React.lazy(() => import('./components/dummy/dashboard/Dashboard'));
 
@@ -20,14 +23,10 @@ const Page404 = React.lazy(() => import('./components/modules/Page404'));
 const Page500 = React.lazy(() => import('./components/modules/Page500'));
 const Page403 = React.lazy(() => import('./components/modules/Page403'));
 
-const DummyBackOfficeHome = () => <div>Back Office Home</div>;
+const DummyBackOfficeHome = () => <div>Home Page</div>;
 
-const routes: RouteObject[] = [
-  { path: '/', element: <DummyBackOfficeHome /> },
-  { path: '/404', element: <Page404 /> },
-  { path: '/500', element: <Page500 /> },
-  { path: '/403', element: <Page403 /> },
-  { path: '/auth/*', element: <AuthRoutes /> },
+const privateRoutes: RouteObject[] = [
+  { path: '', element: <DummyBackOfficeHome /> },
   { path: 'table', element: <Table /> },
   { path: 'dashboard', element: <Dashboard /> },
   { path: 'theme/*', element: <ThemeRoutes /> },
@@ -41,7 +40,28 @@ const routes: RouteObject[] = [
   { path: '*', element: <Navigate to="/404" /> },
 ];
 
-const RouteRender = () => useRoutes(routes);
+const publicRoutes: RouteObject[] = [
+  {
+    path: '/*',
+    element: (
+      // <RequireAuth>
+      <TheLayout />
+      // </RequireAuth>
+    ),
+    children: privateRoutes,
+    caseSensitive: true,
+  },
+  { path: '/404', element: <Page404 /> },
+  { path: '/500', element: <Page500 /> },
+  { path: '/403', element: <Page403 /> },
+  { path: '/login', element: <Login /> },
+  { path: '/register', element: <Register /> },
+  { path: '/forgot', element: <ForgotPassword /> },
+  // { path: '/auth/*', element: <AuthRoutes /> },
+  { path: '*', element: <Navigate to="/404" /> },
+];
+
+const RouteRender = () => useRoutes(publicRoutes);
 
 // const BackOfficeRender = () => useRoutes(backOffice);
 
@@ -58,5 +78,5 @@ const RouteRender = () => useRoutes(routes);
 //   return routes;
 // };
 
-export { RouteRender, routes };
+export { RouteRender, publicRoutes, privateRoutes };
 

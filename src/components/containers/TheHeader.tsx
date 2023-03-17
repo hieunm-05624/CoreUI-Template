@@ -1,25 +1,21 @@
 import { cilBell, cilEnvelopeOpen, cilList, cilMenu } from '@coreui/icons-pro';
 import CIcon from '@coreui/icons-react';
-import {
-  CContainer,
-  CHeader,
-  CHeaderDivider,
-  CHeaderNav,
-  CHeaderToggler,
-  CNavItem,
-  CNavLink
-} from '@coreui/react-pro';
+import { CContainer, CHeader, CHeaderNav, CHeaderToggler, CNavItem, CNavLink } from '@coreui/react-pro';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../reducers';
 import AppBreadcrumb from './AppBreadcrumb';
-import { toggleSidebar } from './reducer';
+import { toggleAside, toggleSidebar } from './reducer';
 
 const TheHeader = () => {
   const dispatch = useDispatch();
-  const { sidebarShow } = useSelector((state: RootState) => state.container);
+  const { sidebarShow, asideShow } = useSelector((state: RootState) => state.container);
 
   const toggleSidebarDesktop = () => {
     dispatch(toggleSidebar(!sidebarShow));
+  };
+
+  const toggleASideDesktop = () => {
+    dispatch(toggleAside(!asideShow));
   };
 
   return (
@@ -31,7 +27,10 @@ const TheHeader = () => {
           <CHeaderToggler className="ps-1" onClick={toggleSidebarDesktop}>
             <CIcon icon={cilMenu} size="lg" />
           </CHeaderToggler>
-        <CNavItem>
+          <CNavItem className="nav-breadcrumb">
+            <AppBreadcrumb />
+          </CNavItem>
+          {/* <CNavItem>
             <CNavLink href="#">Home</CNavLink>
           </CNavItem>
           <CNavItem>
@@ -39,11 +38,11 @@ const TheHeader = () => {
           </CNavItem>
           <CNavItem>
             <CNavLink href="#">Settings</CNavLink>
-          </CNavItem>
+          </CNavItem> */}
         </CHeaderNav>
         <CHeaderNav>
           <CNavItem>
-            <CNavLink href="#">
+            <CNavLink onClick={toggleASideDesktop}>
               <CIcon icon={cilBell} size="lg" />
             </CNavLink>
           </CNavItem>
@@ -59,10 +58,10 @@ const TheHeader = () => {
           </CNavItem>
         </CHeaderNav>
       </CContainer>
-      <CHeaderDivider />
-      <CContainer fluid>
+      {/* <CHeaderDivider /> */}
+      {/* <CContainer fluid>
         <AppBreadcrumb />
-      </CContainer>
+      </CContainer> */}
     </CHeader>
   );
 };

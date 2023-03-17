@@ -1,7 +1,7 @@
 import React, { ErrorInfo } from 'react';
 import Page500 from '../modules/Page500';
 
-class ErrorBoundary extends React.Component {
+class ErrorBoundary extends React.Component<any, any> {
   state = {
     errorMessage: '',
   };
@@ -19,7 +19,7 @@ class ErrorBoundary extends React.Component {
 
   render() {
     if (this.state.errorMessage) {
-      return <Page500 errorMessage={this.state.errorMessage} />
+      return <Page500 errorMessage={this.state.errorMessage} />;
     }
     return this.props.children;
   }

@@ -11,5 +11,5 @@ const themeLayout: RouteObject[] = [
   { path: '*', element: <Navigate to="/404" /> },
 ];
 
-const ThemeRoutes = () => useRoutes(themeLayout)
+const ThemeRoutes = () => useRoutes(themeLayout);
 export default ThemeRoutes;

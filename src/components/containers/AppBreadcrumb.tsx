@@ -2,9 +2,9 @@ import { CBreadcrumb, CBreadcrumbItem } from '@coreui/react-pro';
 import { startCase, toLower } from 'lodash';
 import React from 'react';
 import { matchPath, matchRoutes, RouteObject } from 'react-router-dom';
-import { routes } from '../../routes';
+import { ReactComponent as HomeIcon } from '../../assets/img/HomeIcon.svg';
+import { publicRoutes } from '../../routes';
 import { useRouter } from '../../shared/utils/hooks/useRouter';
-
 
 interface IBreadCrumbs {
   pathname: string;
@@ -48,7 +48,7 @@ const AppBreadcrumb = () => {
       const currentPathname = `${prev}/${curr}`;
       breadcrumbs.push({
         pathname: currentPathname,
-        name: getRouteName(currentPathname, routes),
+        name: getRouteName(currentPathname, publicRoutes),
         active: index + 1 === array.length ? true : false,
       });
       return currentPathname;
@@ -58,13 +58,35 @@ const AppBreadcrumb = () => {
 
   const breadcrumbs = getBreadcrumbs(currentLocation);
 
+  // return (
+  //   <CBreadcrumb className="m-0 ms-2">
+  //     {breadcrumbs.map((breadcrumb, index) => {
+  //       return (
+  //         breadcrumb.name && (
+  //           <CBreadcrumbItem
+  //             {...(breadcrumb.active ? { active: true } : { href: `#${breadcrumb.pathname}` })}
+  //             key={index}
+  //           >
+  //             {breadcrumb.name}
+  //           </CBreadcrumbItem>
+  //         )
+  //       );
+  //     })}
+  //   </CBreadcrumb>
+  // );
   return (
-    <CBreadcrumb className="m-0 ms-2">
+    <CBreadcrumb className=" ms-2 custom-breadcrumb">
+      <CBreadcrumbItem href="#">
+        <HomeIcon className="solid-home-svg"/>
+        {/* <CImage src={HomeIcon} width={16.67} height={17.28} style={{ verticalAlign: 'text-top' }} /> */}
+      </CBreadcrumbItem>
       {breadcrumbs.map((breadcrumb, index) => {
         return (
           breadcrumb.name && (
             <CBreadcrumbItem
-              {...(breadcrumb.active ? { active: true } : { href: `#${breadcrumb.pathname}` })}
+              {...(breadcrumb.active
+                ? { href: `#${breadcrumb.pathname}`, className: 'breadcrumb-active' }
+                : { href: `#${breadcrumb.pathname}` })}
               key={index}
             >
               {breadcrumb.name}

@@ -1,6 +1,6 @@
 import { CContainer } from '@coreui/react-pro';
 import React, { Suspense } from 'react';
-import { RouteRender } from '../../routes';
+import { Outlet } from 'react-router-dom';
 
 const loading = (
   <div className="pt-3 text-center">
@@ -12,7 +12,7 @@ const TheContent = () => {
   return (
     <CContainer fluid className="px-0">
       <Suspense fallback={loading}>
-        <RouteRender />
+        <Outlet />
       </Suspense>
     </CContainer>
   );

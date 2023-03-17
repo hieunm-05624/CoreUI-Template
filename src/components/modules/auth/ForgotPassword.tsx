@@ -1,18 +1,17 @@
 import { cilPhone } from '@coreui/icons-pro';
 import CIcon from '@coreui/icons-react';
 import {
-    CButton,
-    CCard,
-    CCardBody, CCol,
-    CContainer,
-    CForm,
-    CFormInput,
-    CInputGroup,
-    CInputGroupText,
-    CLink,
-    CRow
+  CButton,
+  CCard,
+  CCardBody, CCol,
+  CContainer,
+  CForm,
+  CFormInput,
+  CInputGroup,
+  CInputGroupText,
+  CLink,
+  CRow
 } from '@coreui/react-pro';
-import React from 'react';
 
 const ForgotPassword = () => {
   return (
@@ -39,7 +38,7 @@ const ForgotPassword = () => {
                     </CCol>
                     <CCol md={6} xs={12} className="text-right my-2">
                       Just remembered?{' '}
-                      <CLink className="px-0" href="#/auth/login">
+                      <CLink className="px-0" href="#/login">
                         Sign in
                       </CLink>
                     </CCol>

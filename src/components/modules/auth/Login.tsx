@@ -20,6 +20,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import { RootState } from '../../../reducers';
 import { useRouter } from '../../../shared/utils/hooks/useRouter';
+import { AppDispatch } from '../../../store';
 import { ToastError } from '../../shared/toast/Toast';
 import { ILoginForm, login } from './auth.api';
 import { fetching, resetAll } from './auth.reducer';
@@ -29,7 +30,8 @@ interface ILocationPath {
 }
 
 const Login = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
+
   const { navigate, location } = useRouter();
   const state = location.state as ILocationPath;
   const { errorMessage, user } = useSelector((state: RootState) => state.authentication);
@@ -125,7 +127,7 @@ const Login = () => {
                             </CButton>
                           </CCol>
                           <CCol xs={6} className="text-right">
-                            <CButton color="link" className="px-0" href="#/auth/forgot">
+                            <CButton color="link" className="px-0" href="#/forgot">
                               Quên mật khẩu?
                             </CButton>
                           </CCol>

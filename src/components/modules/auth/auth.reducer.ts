@@ -47,32 +47,32 @@ const { actions, reducer } = createSlice({
       state.errorMessage = null;
     },
   },
-  extraReducers: {
-    [login.fulfilled.type]: (state, { payload }: PayloadAction<{ id_token: string }>) => {
+  extraReducers: (builder) => {
+    builder.addCase(login.fulfilled, (state, { payload }: PayloadAction<{ id_token: string }>) => {
       localStorage.setItem('authentication_token', payload.id_token);
       state.token = payload.id_token;
       state.loginSuccess = true;
       state.loading = false;
-    },
-    [login.rejected.type]: (state, { payload }: PayloadAction<any>) => {
+    });
+    builder.addCase(login.rejected, (state, { payload }: PayloadAction<any>) => {
       localStorage.removeItem('authentication_token');
       state.errorMessage = payload?.message;
       state.loading = false;
       state.loginSuccess = false;
-    },
-    [account.fulfilled.type]: (state, { payload }: PayloadAction<IUser>) => {
+    });
+    builder.addCase(account.fulfilled, (state, { payload }: PayloadAction<IUser>) => {
       state.user = payload;
       state.getAccountSuccess = true;
       state.errorMessage = null;
       state.loading = false;
-    },
-    [account.rejected.type]: (state, { payload }) => {
+    });
+    builder.addCase(account.rejected, (state, { payload }) => {
       localStorage.removeItem('authentication_token');
       state.getAccountSuccess = false;
       state.loading = false;
-    },
+    });
   },
 });
 
-export const { fetching, resetAll, resetEntity,logout } = actions;
+export const { fetching, resetAll, resetEntity, logout } = actions;
 export default reducer;

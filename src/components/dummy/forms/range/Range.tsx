@@ -1,4 +1,3 @@
-import React from 'react';
 import { CCard, CCardBody, CCardHeader, CCol, CFormLabel, CFormRange, CRow } from '@coreui/react-pro';
 import DocsExample from '../../../containers/DocsExample';
 
@@ -17,7 +16,7 @@ const Range = () => {
             </p>
             <DocsExample href="forms/range">
               <CFormLabel htmlFor="customRange1">Example range</CFormLabel>
-              <CFormRange id="customRange1" steps={1}/>
+              <CFormRange id="customRange1" step={1}/>
             </DocsExample>
           </CCardBody>
         </CCard>
@@ -34,7 +33,7 @@ const Range = () => {
             </p>
             <DocsExample href="forms/range#disabled">
               <CFormLabel htmlFor="disabledRange">Disabled range</CFormLabel>
-              <CFormRange id="disabledRange" disabled steps={1} />
+              <CFormRange id="disabledRange" disabled step={1} />
             </DocsExample>
           </CCardBody>
         </CCard>
@@ -52,7 +51,7 @@ const Range = () => {
             </p>
             <DocsExample href="forms/range#min-and-max">
               <CFormLabel htmlFor="customRange2">Example range</CFormLabel>
-              <CFormRange min={0} max={5} defaultValue="3" id="customRange2" steps={1}/>
+              <CFormRange min={0} max={5} defaultValue="3" id="customRange2" step={1}/>
             </DocsExample>
           </CCardBody>
         </CCard>
@@ -60,17 +59,17 @@ const Range = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>React Range</strong> <small>Steps</small>
+            <strong>React Range</strong> <small>Step</small>
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
               By default, range inputs &#34;snap&#34; to integer values. To change this, you can specify a{' '}
-              <code>step</code> value. In the example below, we double the number of steps by using{' '}
+              <code>step</code> value. In the example below, we double the number of step by using{' '}
               <code>step=&#34;0.5&#34;</code>.
             </p>
-            <DocsExample href="forms/range#steps">
+            <DocsExample href="forms/range#step">
               <CFormLabel htmlFor="customRange3">Example range</CFormLabel>
-              <CFormRange min={0} max={5} step="0.5" defaultValue="3" id="customRange3" steps={1}/>
+              <CFormRange min={0} max={5} step={0.5} defaultValue="3" id="customRange3"/>
             </DocsExample>
           </CCardBody>
         </CCard>
