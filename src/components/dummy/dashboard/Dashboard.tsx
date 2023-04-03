@@ -33,7 +33,7 @@ import {
   CTableHeaderCell,
   CTableRow
 } from '@coreui/react-pro';
-import React, { lazy } from 'react';
+import { lazy } from 'react';
 import avatar1 from '../../../assets/img/avatar.jpg';
 
 
@@ -298,6 +298,7 @@ const Dashboard = () => {
       <CRow>
         <CCol xs>
           <CCard className="mb-4">
+            <p>Hello</p>
             <CCardHeader>Traffic {' & '} Sales</CCardHeader>
             <CCardBody>
               <CRow>
