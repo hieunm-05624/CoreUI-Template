@@ -3,22 +3,25 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 This project use:
-- Typescript v4.9.4
+- Typescript v4.9.5
 - React v18.2.0
 - Redux v8.0.5
-- Redux Toolkit v1.9.1
+- Redux Toolkit v1.9.3
+- React Router Dom v6.10.0
 
 Template:
-- CoreUI v4.4.3
-- CoreUI React v4.8.0
+- CoreUI Pro v4.5.0
+- CoreUI Icon v3.0.0
+- CoreUI Chart v2.1.2
+- CoreUI React v4.10.0
 
 Libraries:
-- Sass v1.57
+- Sass v1.61
 - Bootstrap v5.2.3
-- Axios v1.2.2
+- Axios v1.3.5
 - Formik v2.2.9
 - Yup v0.32
-- React-Toastify v9.1.1
+- React-Toastify v9.1.2
 - Lodash v4.17.21
 
 
