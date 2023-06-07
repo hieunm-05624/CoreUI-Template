@@ -1,6 +1,5 @@
 import { CCard, CCardBody, CCardHeader, CCol, CMultiSelect, CRow } from '@coreui/react-pro';
-import { Option } from '@coreui/react-pro/dist/components/multi-select/CMultiSelect';
-import React from 'react';
+import { Option } from '@coreui/react-pro/dist/components/multi-select/types';
 import DocsExample from '../../../containers/DocsExample';
 
 const options: Option[] = [

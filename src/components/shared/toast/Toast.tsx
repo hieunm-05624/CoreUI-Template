@@ -1,7 +1,6 @@
-import { cisCheckCircle, cisCircle, cisExclamationCircle, cisInfoCircle } from "@coreui/icons-pro";
+import { cisCheckCircle, cisCircle, cisExclamationCircle, cisInfo } from "@coreui/icons-pro";
 import CIcon from "@coreui/icons-react";
-import React from "react";
-import { toast, ToastOptions } from "react-toastify";
+import { ToastOptions, toast } from "react-toastify";
 
 const centerToast: ToastOptions = {
   position: "top-center",
@@ -48,7 +47,7 @@ const Error = (prop: IProp) => (
 
 const Info = (prop: IProp) => (
   <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-start" }}>
-    <CIcon className="text-primary" icon={cisInfoCircle} size="lg" color="#007bff" />
+    <CIcon className="text-primary" icon={cisInfo} size="lg" color="#007bff" />
     <div style={{ color: "#333333", marginLeft: "5px" }}>{prop.message}</div>
   </div>
 );
