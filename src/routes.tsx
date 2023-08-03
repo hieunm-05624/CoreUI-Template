@@ -37,7 +37,7 @@ const privateRoutes: RouteObject[] = [
   { path: 'icons/*', element: <IconRoutes /> },
   { path: 'notifications/*', element: <NotificationRoutes /> },
   { path: 'widgets', element: <Widgets /> },
-  { path: '*', element: <Navigate to="/404" /> },
+  { path: '*', element: <Navigate to="/404" replace/> },
 ];
 
 const publicRoutes: RouteObject[] = [
@@ -58,7 +58,7 @@ const publicRoutes: RouteObject[] = [
   { path: '/register', element: <Register /> },
   { path: '/forgot', element: <ForgotPassword /> },
   // { path: '/auth/*', element: <AuthRoutes /> },
-  { path: '*', element: <Navigate to="/404" /> },
+  { path: '*', element: <Navigate to="/404" replace/> },
 ];
 
 const RouteRender = () => useRoutes(publicRoutes);
@@ -78,5 +78,5 @@ const RouteRender = () => useRoutes(publicRoutes);
 //   return routes;
 // };
 
-export { RouteRender, publicRoutes, privateRoutes };
+export { RouteRender, privateRoutes, publicRoutes };
 

@@ -29,5 +29,5 @@ export const ProtectedComponent = ({ children, requiredPerms }: IProtectedCompon
 
   const { authorities } = user;
   if (checkIfUserIsAdmin(authorities)) return <>{children}</>;
-  return checkOverlapBetweenPerms(authorities, requiredPerms) ? <>{children}</> : <Navigate to="/403" />;
+  return checkOverlapBetweenPerms(authorities, requiredPerms) ? <>{children}</> : <Navigate to="/403" replace/>;
 };

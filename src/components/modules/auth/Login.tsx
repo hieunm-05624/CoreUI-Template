@@ -43,7 +43,7 @@ const Login = () => {
 
   useEffect(() => {
     if (user) {
-      const redirectPath = state?.path || '/BO';
+      const redirectPath = state?.path || '/';
       navigate(redirectPath, { replace: true });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
