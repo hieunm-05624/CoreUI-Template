@@ -1,8 +1,9 @@
+import { RootState } from "@/reducers";
 import { intersection } from 'lodash';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { RootState } from '../../../reducers';
+// import { RootState } from '../../../reducers';
 import { Permission } from '../../../shared/enumeration/permission';
 import { TAuthorities } from '../../../shared/model/user.model';
 import { useRouter } from '../../../shared/utils/hooks/useRouter';
