@@ -10,12 +10,13 @@ This project use:
 - React Router Dom v6.10.0
 
 Template:
-- CoreUI Pro v4.5.0
+- CoreUI Pro v4.6.3
 - CoreUI Icon v3.0.0
 - CoreUI Chart v2.1.2
-- CoreUI React v4.10.0
+- CoreUI React v4.13.1
 
 Libraries:
+- craco v7.1.0
 - Sass v1.61
 - Bootstrap v5.2.3
 - Axios v1.3.5
@@ -31,6 +32,7 @@ Libraries:
 In the project directory, you can run:
 
 ### `npm start`
+Using craco to config create react app webpack to handle path allias
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
